@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using BookingWebAPI.Application.Queries.Reservation.GetAllRoomAvailability;
+using BookingWebAPI.Application.Queries.Reservation.GetAllRooms;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,12 +25,13 @@ namespace BookingWebAPI.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("getAllRoom")]
-        public async Task<IActionResult> GetAllRoom()
+        [HttpGet("getAllRooms")]
+        public async Task<IActionResult> GetAllRooms()
         {
             try
             {
-                return Ok();
+                var result = await _mediator.Send(new GetAllRooms());
+                return Ok(result);
             }
             catch (Exception ex)
             {

@@ -13,12 +13,10 @@ namespace BookingWebAPI.Application.Queries.Reservation.GetAllRoomAvailability
     public class GetAllRoomAvailabilityHandler : IRequestHandler<GetAllRoomAvailability, IEnumerable<Booking>>
     {
         private readonly IReservationRepository _reservationRepository;
-        private readonly Booking _booking;
 
         public GetAllRoomAvailabilityHandler(IReservationRepository reservationRepository)
         {
             _reservationRepository = reservationRepository;
-            _booking = new Booking();
         }
 
         public async Task<IEnumerable<Booking>> Handle(GetAllRoomAvailability request, CancellationToken cancellationToken)
