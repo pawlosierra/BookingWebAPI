@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using BookingWebAPI.Application.Queries.Reservation.GetAllRoomAvailability;
 using BookingWebAPI.Application.Queries.Reservation.GetAllRooms;
+using BookingWebAPI.Application.Queries.Reservation.GetRoomAvailabilityByDate;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -53,6 +55,25 @@ namespace BookingWebAPI.Controllers
             }
         }
 
-        
+        [HttpGet("getRoomAvailabilityByDate")]
+        public async Task<IActionResult> GetRoomAvailabilityByDate(
+                                        [FromQuery(Name = "dateOfEntry")]
+                                        [Required(ErrorMessage = "The field dateOfEntry is required.")] 
+                                        [RegularExpression(@"\b(?<mm>\d{1,2})/(?<dd>\d{1,2})/(?<yyyy>\d{4})\b", ErrorMessage = "Invalid date format. Requested format is MM/DD/YYYY")]
+                                        string dateOfEntry)
+        {
+            try
+            {
+                var result = await _mediator.Send(new GetRoomAvailabilityByDate(dateOfEntry));
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+            }
+        }
+
+
+
     }
 }
