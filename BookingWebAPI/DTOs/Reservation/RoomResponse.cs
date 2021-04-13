@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BookingWebAPI.Domain.Models.Reservation
+namespace BookingWebAPI.DTOs.Reservation
 {
-    public class Room
+    public class RoomResponse
     {
         public int RoomNumber { get; set; }
         public decimal PriceNight { get; set; }

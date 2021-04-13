@@ -10,10 +10,10 @@ namespace BookingWebAPI.Infrastructure.Data
     public class RoomContext
     {
         private readonly string _path = @"C:\Users\JuanPawloSierra\source\repos\Projects\BookingWebAPI\BookingWebAPI.Infrastructure\Data\Json\Rooms.json";
-        public List<RoomModel> DeserializeListHotelRooms()
+        public List<BookingModel> DeserializeListHotelRooms()
         {
             var jsonFile = File.ReadAllText(_path);
-            List<RoomModel> hotelRooms = JsonConvert.DeserializeObject<List<RoomModel>>(jsonFile);
+            List<BookingModel> hotelRooms = JsonConvert.DeserializeObject<List<BookingModel>>(jsonFile);
             return hotelRooms;
         }
     }

@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookingWebAPI.Application.Queries.Reservation.GetAllRoomAvailability;
+using BookingWebAPI.Domain.Repositories;
+using BookingWebAPI.Infrastructure.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +30,10 @@ namespace BookingWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddMediatR(typeof(GetAllRoomAvailabilityHandler).Assembly);
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
