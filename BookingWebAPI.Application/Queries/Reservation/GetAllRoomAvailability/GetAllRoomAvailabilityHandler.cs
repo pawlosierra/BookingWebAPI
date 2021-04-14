@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BookingWebAPI.Application.Queries.Reservation.GetAllRoomAvailability
 {
-    public class GetAllRoomAvailabilityHandler : IRequestHandler<GetAllRoomAvailability, IEnumerable<Booking>>
+    public class GetAllRoomAvailabilityHandler : IRequestHandler<GetAllRoomAvailability, IEnumerable<Room>>
     {
         private readonly IReservationRepository _reservationRepository;
 
@@ -19,23 +19,10 @@ namespace BookingWebAPI.Application.Queries.Reservation.GetAllRoomAvailability
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<IEnumerable<Booking>> Handle(GetAllRoomAvailability request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Room>> Handle(GetAllRoomAvailability request, CancellationToken cancellationToken)
         {
             var rooms = await _reservationRepository.GetAllRooms();
-            var roomsAvailability = SearchRoomsAvailability(rooms);
-            return roomsAvailability;
-        }
-        public IEnumerable<Booking> SearchRoomsAvailability(IEnumerable<Booking> rooms)
-        {
-            var roomsAvailability = new List<Booking>();
-            foreach (var room in rooms)
-            {
-                if (room.Room.Availability)
-                {
-                    roomsAvailability.Add(room);
-                }
-            }
-            return roomsAvailability;
+            return rooms.Where(x => x.Availability == true);
         }
     }
 }

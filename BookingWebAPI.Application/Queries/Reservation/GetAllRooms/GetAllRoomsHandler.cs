@@ -21,19 +21,8 @@ namespace BookingWebAPI.Application.Queries.Reservation.GetAllRooms
 
         public async Task<IEnumerable<Room>> Handle(GetAllRooms request, CancellationToken cancellationToken)
         {
-            var bookings = await _reservationRepository.GetAllRooms();
-            var rooms = SearchAllHotelRooms(bookings);
+            var rooms = await _reservationRepository.GetAllRooms();
             return rooms;
-        }
-
-        public IEnumerable<Room> SearchAllHotelRooms(IEnumerable<Booking> bookings)
-        {
-            var hotelRooms = new List<Room>();
-            foreach (var room in bookings)
-            {
-                hotelRooms.Add(room.Room);
-            }
-            return hotelRooms;
         }
     }
 }

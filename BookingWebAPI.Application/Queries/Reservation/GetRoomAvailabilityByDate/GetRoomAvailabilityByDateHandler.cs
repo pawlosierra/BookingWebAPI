@@ -20,9 +20,10 @@ namespace BookingWebAPI.Application.Queries.Reservation.GetRoomAvailabilityByDat
 
         public async Task<IEnumerable<Booking>> Handle(GetRoomAvailabilityByDate request, CancellationToken cancellationToken)
         {
-            var rooms = await _reservationRepository.GetAllRooms();
-            var roomsAvailabilityByDate = GetRoomsAvailabilityByDate(rooms, request.DateOfEntry);
-            return roomsAvailabilityByDate;
+            var rooms = await _reservationRepository.GetAvalabilityRoomsByData();
+            //var roomsAvailabilityByDate = GetRoomsAvailabilityByDate(rooms, request.DateOfEntry);
+            //return roomsAvailabilityByDate;
+            return null;
         }
 
         public IEnumerable<Booking> GetRoomsAvailabilityByDate(IEnumerable<Booking> rooms, DateTime dateOfEntry)

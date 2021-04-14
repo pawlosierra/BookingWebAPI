@@ -8,6 +8,7 @@ namespace BookingWebAPI.Domain.Repositories
 {
     public interface IReservationRepository
     {
-        Task<IEnumerable<Booking>> GetAllRooms();
+        Task<IEnumerable<Room>> GetAllRooms();
+        Task<IEnumerable<Booking>> GetAvalabilityRoomsByData();
     }
 }

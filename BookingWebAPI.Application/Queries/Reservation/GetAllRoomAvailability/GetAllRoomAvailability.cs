@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BookingWebAPI.Application.Queries.Reservation.GetAllRoomAvailability
 {
-    public class GetAllRoomAvailability : IRequest<IEnumerable<Booking>>
+    public class GetAllRoomAvailability : IRequest<IEnumerable<Room>>
     {
     }
 }

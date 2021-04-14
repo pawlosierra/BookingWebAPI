@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
+#nullable disable
 
 namespace BookingWebAPI.Infrastructure.Models.Reservation
 {
-    public class BookingModel
+    public partial class BookingModel
     {
-        public RoomModel RoomModel { get; set; }
-        public virtual ICollection<AvailableDateModel> AvailableDate { get; set; }
-        //public ClientModel Client { get; set; }
+        public int Id { get; set; }
+        public int RoomModelId { get; set; }
+        public int AvailableDateModelId { get; set; }
+
+        public virtual AvailableDateModel RoomModel { get; set; }
+        public virtual RoomModel RoomModelNavigation { get; set; }
     }
 }

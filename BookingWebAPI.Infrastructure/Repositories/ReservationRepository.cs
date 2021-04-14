@@ -12,33 +12,31 @@ namespace BookingWebAPI.Infrastructure.Repositories
 {
     public class ReservationRepository : IReservationRepository
     {
-        private readonly RoomContext _roomContext;
+        //private readonly RoomContext _roomContext;
         private readonly BookingContext _bookingContext;
         private readonly IMapper _mapper;
 
         public ReservationRepository(IMapper mapper, BookingContext bookingContext)
         {
-            _roomContext = new RoomContext();
             _mapper = mapper;
             _bookingContext = bookingContext;
         }
 
-        public async Task<IEnumerable<Booking>> GetAllRooms()
+        public async Task<IEnumerable<Room>> GetAllRooms()
         {
-            //await _bookingContext.Database.EnsureCreatedAsync();
-            //var availableRooms = _roomContext.DeserializeListHotelRooms();
-            //foreach (var room in availableRooms)
-            //{
-            //    _bookingContext.BookingModels.Add(new BookingModel
-            //    {
-            //        RoomModel = room.RoomModel,
-            //        AvailableDate = room.AvailableDate
-            //    });
-            //}
-            //await _bookingContext.SaveChangesAsync();
-            var availableRooms = await _bookingContext.BookingModels.ToListAsync();
-            var result = _mapper.Map<IEnumerable<Booking>>(availableRooms);
+            var rooms = await _bookingContext.RoomModels.ToListAsync();
+            var result = _mapper.Map<IEnumerable<Room>>(rooms);
             return result;
+        }
+
+        public async Task<IEnumerable<Booking>> GetAvalabilityRoomsByData()
+        {
+            //var lst = new List<Booking>();
+            //var booking = await _bookingContext.BookingModels.ToListAsync();
+            //var booking = from a in _bookingContext.RoomModels
+            //              join s in _bookingContext.AvailableDateModels 
+                          
+            return null;
         }
     }
 }
