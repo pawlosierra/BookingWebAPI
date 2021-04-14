@@ -3,22 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingWebAPI", "BookingWebAPI\BookingWebAPI.csproj", "{11D0931C-ABAB-4A42-A80D-3A00059CAD09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingWebAPI", "BookingWebAPI\BookingWebAPI.csproj", "{11D0931C-ABAB-4A42-A80D-3A00059CAD09}"
 	ProjectSection(ProjectDependencies) = postProject
 		{51766340-0AF3-4242-BF50-32F79E1BBBC7} = {51766340-0AF3-4242-BF50-32F79E1BBBC7}
 		{CD79209E-3A5F-4C81-BB93-B03BA7371EDB} = {CD79209E-3A5F-4C81-BB93-B03BA7371EDB}
 		{E1BDE8FF-9E22-4210-8AA7-399B2C824CF3} = {E1BDE8FF-9E22-4210-8AA7-399B2C824CF3}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingWebAPI.Application", "BookingWebAPI.Application\BookingWebAPI.Application.csproj", "{CD79209E-3A5F-4C81-BB93-B03BA7371EDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingWebAPI.Application", "BookingWebAPI.Application\BookingWebAPI.Application.csproj", "{CD79209E-3A5F-4C81-BB93-B03BA7371EDB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{51766340-0AF3-4242-BF50-32F79E1BBBC7} = {51766340-0AF3-4242-BF50-32F79E1BBBC7}
 		{E1BDE8FF-9E22-4210-8AA7-399B2C824CF3} = {E1BDE8FF-9E22-4210-8AA7-399B2C824CF3}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingWebAPI.Domain", "BookingWebAPI.Domain\BookingWebAPI.Domain.csproj", "{51766340-0AF3-4242-BF50-32F79E1BBBC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingWebAPI.Domain", "BookingWebAPI.Domain\BookingWebAPI.Domain.csproj", "{51766340-0AF3-4242-BF50-32F79E1BBBC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingWebAPI.Infrastructure", "BookingWebAPI.Infrastructure\BookingWebAPI.Infrastructure.csproj", "{E1BDE8FF-9E22-4210-8AA7-399B2C824CF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingWebAPI.Infrastructure", "BookingWebAPI.Infrastructure\BookingWebAPI.Infrastructure.csproj", "{E1BDE8FF-9E22-4210-8AA7-399B2C824CF3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{51766340-0AF3-4242-BF50-32F79E1BBBC7} = {51766340-0AF3-4242-BF50-32F79E1BBBC7}
 	EndProjectSection
